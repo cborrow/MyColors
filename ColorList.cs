@@ -88,7 +88,7 @@ namespace MyColors
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            int x = 0;
+            int x = 2;
             int y = 0;
 
             if (colors.Count > 0)
@@ -99,12 +99,12 @@ namespace MyColors
                     e.Graphics.FillRectangle(new SolidBrush(colors[i]), rect);
                     e.Graphics.DrawRectangle(Pens.Black, rect);
 
-                    x += 27;
+                    x += colorSize;
 
                     if ((x + 25) >= this.Width)
                     {
-                        x = 0;
-                        y += 27;
+                        x = 2;
+                        y += colorSize;
                     }
                 }
             }
