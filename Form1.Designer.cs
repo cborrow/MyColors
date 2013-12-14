@@ -40,9 +40,10 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.colorList1 = new MyColors.ColorList();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label4 = new System.Windows.Forms.Label();
+            this.colorList1 = new MyColors.ColorList();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -160,15 +161,7 @@
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.Filter = "ColorList (*.list)|*.list|All Files (*.*)|*.*";
-            // 
-            // colorList1
-            // 
-            this.colorList1.Location = new System.Drawing.Point(2, 423);
-            this.colorList1.Name = "colorList1";
-            this.colorList1.Size = new System.Drawing.Size(660, 127);
-            this.colorList1.TabIndex = 9;
-            this.colorList1.Text = "colorList1";
+            this.saveFileDialog1.Filter = "MyColors (*.mcl)|*.mcl|All Files (*.*)|*.*";
             // 
             // linkLabel3
             // 
@@ -183,13 +176,34 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "MyColors (*.mcl)|*.mcl|All Files (*.*)|*.*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(463, 370);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Hex : ";
+            // 
+            // colorList1
+            // 
+            this.colorList1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.colorList1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.colorList1.Location = new System.Drawing.Point(0, 418);
+            this.colorList1.Margin = new System.Windows.Forms.Padding(5);
+            this.colorList1.Name = "colorList1";
+            this.colorList1.Size = new System.Drawing.Size(663, 151);
+            this.colorList1.TabIndex = 9;
+            this.colorList1.Text = "colorList1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 551);
+            this.ClientSize = new System.Drawing.Size(663, 569);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
@@ -230,6 +244,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label4;
     }
 }
 

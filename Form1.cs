@@ -14,8 +14,10 @@ namespace MyColors
     {
         Color selectedColor;
         byte red, green, blue = 0;
+        string defaultList;
 
         bool ignoreUpdate = false;
+        bool savedList = true;
 
         public Form1()
         {
@@ -25,11 +27,11 @@ namespace MyColors
             panel1.BackColor = selectedColor;
 
             colorList1.ColorSelected += new ColorList.ColorSelectedEventHandler(colorList1_ColorSelected);
-            string path = Path.Combine(Application.ExecutablePath, "MyColors.list");
+            defaultList = Path.Combine(Application.ExecutablePath, "MyColors.list");
 
-            if (File.Exists(path))
+            if (File.Exists(defaultList))
             {
-                ColorListFile clf = new ColorListFile(path);
+                ColorListFile clf = new ColorListFile(defaultList);
                 IEnumerable<Color> colors = clf.Load();
 
                 colorList1.Colors.AddRange(colors);
@@ -58,18 +60,40 @@ namespace MyColors
             {
                 selectedColor = Color.FromArgb(red, green, blue);
                 panel1.BackColor = selectedColor;
+                label4.Text = ColorTranslator.ToHtml(selectedColor);
             }
         }
 
         public void SaveColorList()
         {
-            ColorListFile clf = new ColorListFile(Path.Combine(Application.ExecutablePath, "MyColors.list"));
+            ColorListFile clf = new ColorListFile(defaultList);
             clf.Save(colorList1.Colors);
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            //SaveColorList();
+            if (savedList == false)
+            {
+                DialogResult dr = MessageBox.Show("Do you want to save your colors before closing?", "MyColors", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (dr == DialogResult.Yes)
+                {
+                    linkLabel2_LinkClicked(null, null);
+                    this.Close();
+                }
+                else if (dr == DialogResult.No)
+                {
+                    e.Cancel = false;
+                }
+                else if (dr == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
 
             base.OnClosing(e);
         }
@@ -120,6 +144,7 @@ namespace MyColors
         {
             colorList1.Colors.Add(selectedColor);
             colorList1.Refresh();
+            savedList = false;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -136,6 +161,7 @@ namespace MyColors
 
                 ColorListFile clf = new ColorListFile(file);
                 clf.Save(colorList1.Colors);
+                savedList = true;
             }
         }
 
