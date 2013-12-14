@@ -119,6 +119,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(388, 389);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 23);
@@ -129,6 +130,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(197, 389);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 23);
@@ -139,6 +141,7 @@
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(574, 394);
             this.linkLabel1.Name = "linkLabel1";
@@ -150,6 +153,7 @@
             // 
             // linkLabel2
             // 
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(12, 394);
             this.linkLabel2.Name = "linkLabel2";
@@ -165,6 +169,7 @@
             // 
             // linkLabel3
             // 
+            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Location = new System.Drawing.Point(74, 394);
             this.linkLabel3.Name = "linkLabel3";
@@ -189,12 +194,12 @@
             // 
             // colorList1
             // 
-            this.colorList1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.colorList1.BackColor = System.Drawing.SystemColors.Control;
             this.colorList1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.colorList1.Location = new System.Drawing.Point(0, 418);
             this.colorList1.Margin = new System.Windows.Forms.Padding(5);
             this.colorList1.Name = "colorList1";
-            this.colorList1.Size = new System.Drawing.Size(663, 151);
+            this.colorList1.Size = new System.Drawing.Size(663, 85);
             this.colorList1.TabIndex = 9;
             this.colorList1.Text = "colorList1";
             // 
@@ -202,7 +207,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 569);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(663, 503);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
