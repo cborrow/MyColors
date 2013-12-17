@@ -26,7 +26,7 @@ namespace MyColors
             selectedColor = Color.White;
             panel1.BackColor = selectedColor;
 
-            colorList1.ColorSelected += new ColorList.ColorSelectedEventHandler(colorList1_ColorSelected);
+            colorList1.ColorSelected += new ColorList.ColorEventHandler(colorList1_ColorSelected);
             defaultList = Path.Combine(Application.ExecutablePath, "MyColors.list");
 
             if (File.Exists(defaultList))
@@ -37,21 +37,6 @@ namespace MyColors
                 colorList1.Colors.AddRange(colors);
                 colorList1.Refresh();
             }
-        }
-
-        void colorList1_ColorSelected(Color color)
-        {
-            selectedColor = color;
-
-            ignoreUpdate = true;
-
-            trackBar1.Value = color.R;
-            trackBar2.Value = color.G;
-            trackBar3.Value = color.B;
-
-            ignoreUpdate = false;
-
-            panel1.BackColor = selectedColor;
         }
 
         public void UpdateColor()
@@ -96,6 +81,21 @@ namespace MyColors
             }
 
             base.OnClosing(e);
+        }
+
+        private void colorList1_ColorSelected(Color color)
+        {
+            selectedColor = color;
+
+            ignoreUpdate = true;
+
+            trackBar1.Value = color.R;
+            trackBar2.Value = color.G;
+            trackBar3.Value = color.B;
+
+            ignoreUpdate = false;
+
+            panel1.BackColor = selectedColor;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
@@ -194,7 +195,7 @@
             // 
             // colorList1
             // 
-            this.colorList1.BackColor = System.Drawing.SystemColors.Control;
+            this.colorList1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.colorList1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.colorList1.Location = new System.Drawing.Point(0, 418);
             this.colorList1.Margin = new System.Windows.Forms.Padding(5);
@@ -207,7 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(663, 503);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.linkLabel3);
@@ -223,6 +224,7 @@
             this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "MyColors";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
