@@ -10,8 +10,10 @@ namespace MyColors
 {
     public class ColorList : Control
     {
-        public delegate void ColorSelectedEventHandler(Color color);
-        public event ColorSelectedEventHandler ColorSelected;
+        public delegate void ColorEventHandler(Color color);
+        public event ColorEventHandler ColorSelected;
+        public event ColorEventHandler ColorAdded;
+        public event ColorEventHandler ColorRemoved;
 
         SimpleToolTip toolTip;
         int colorSize = 27;
@@ -25,7 +27,9 @@ namespace MyColors
         public ColorList()
         {
             colors = new List<Color>();
-            ColorSelected = new ColorSelectedEventHandler(OnColorSelected);
+            ColorSelected = new ColorEventHandler(OnColorSelected);
+            ColorAdded = new ColorEventHandler(OnColorAdded);
+            ColorRemoved = new ColorEventHandler(OnColorRemoved);
 
             toolTip = new SimpleToolTip();
         }
@@ -50,12 +54,32 @@ namespace MyColors
 
         }
 
+        protected void OnColorAdded(Color color)
+        {
+            this.Refresh();
+        }
+
+        protected void OnColorRemoved(Color color)
+        {
+            this.Refresh();
+        }
+
         protected override void OnMouseClick(MouseEventArgs e)
         {
             int index = GetIndexAtPoint(e.X, e.Y);
 
-            if (index >= 0 && index < colors.Count)
+            if (index < 0 || index >= colors.Count)
+                return;
+
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left || (e.Button & MouseButtons.Right) == MouseButtons.Right)
                 ColorSelected(colors[index]);
+            else if ((e.Button & MouseButtons.Middle) == MouseButtons.Middle)
+            {
+                Color c = colors[index];
+                colors.RemoveAt(index);
+                ColorRemoved(c);
+            }
+
             base.OnMouseClick(e);
         }
 
